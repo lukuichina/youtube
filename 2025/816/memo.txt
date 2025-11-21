@@ -1,0 +1,70 @@
+prepare:
+
+1,nodejs.py
+
+DA_HOST = 'https://server3.webhostmost.com:2222'
+DA_LOGIN = 'username'
+
+SESSION = ''
+CSRFTOKEN = ''
+
+DOMAIN = 'whm3.swings.ggff.net'
+(CNAME whm3   server3.webhostmost.com proxied)
+
+cookie:
+nodejs_selector/index.raw?c=send-request
+nodejs_selector/index.raw?a=cookie
+
+2,app.js
+UUID
+DOMAIN
+port 
+
+3,package.json
+
+4,lib.tar.gz
+upload->/
+
+
+
+$session = New-Object Microsoft.PowerShell.Commands.WebRequestSession
+$session.Cookies.Add((New-Object System.Net.Cookie("csrftoken", "csrf token", "/", "server3.webhostmost.com:2222")))
+$session.Cookies.Add((New-Object System.Net.Cookie("session", "session id", "/", "server3.webhostmost.com:2222")))
+Invoke-WebRequest -UseBasicParsing -Uri "https://server3.webhostmost.com:2222/CMD_PLUGINS/nodejs_selector/index.raw?a=cookie" `
+-WebSession $session `
+-UserAgent "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:145.0) Gecko/20100101 Firefox/145.0" `
+-Headers @{
+"Accept" = "*/*"
+  "Accept-Language" = "ja,en-US;q=0.7,en;q=0.3"
+  "Accept-Encoding" = "gzip, deflate, br, zstd"
+  "Referer" = "https://server3.webhostmost.com:2222/CMD_PLUGINS/nodejs_selector/"
+  "Sec-Fetch-Dest" = "script"
+  "Sec-Fetch-Mode" = "no-cors"
+  "Sec-Fetch-Site" = "same-origin"
+  "TE" = "trailers"
+}
+
+
+
+
+$session = New-Object Microsoft.PowerShell.Commands.WebRequestSession
+$session.Cookies.Add((New-Object System.Net.Cookie("csrftoken", "csrf token", "/", "server3.webhostmost.com:2222")))
+$session.Cookies.Add((New-Object System.Net.Cookie("session", "session id", "/", "server3.webhostmost.com:2222")))
+Invoke-WebRequest -UseBasicParsing -Uri "https://server3.webhostmost.com:2222/CMD_PLUGINS/nodejs_selector/index.raw?c=send-request" `
+-Method "POST" `
+-WebSession $session `
+-UserAgent "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:145.0) Gecko/20100101 Firefox/145.0" `
+-Headers @{
+"Accept" = "application/json, text/plain, */*"
+  "Accept-Language" = "ja,en-US;q=0.7,en;q=0.3"
+  "Accept-Encoding" = "gzip, deflate, br, zstd"
+  "X-CSRFToken" = "csrf token"
+  "Origin" = "https://server3.webhostmost.com:2222"
+  "Referer" = "https://server3.webhostmost.com:2222/CMD_PLUGINS/nodejs_selector/"
+  "Sec-Fetch-Dest" = "empty"
+  "Sec-Fetch-Mode" = "cors"
+  "Sec-Fetch-Site" = "same-origin"
+  "TE" = "trailers"
+} `
+-ContentType "application/x-www-form-urlencoded;charset=UTF-8" `
+-Body "command=spa-get-user-info&csrftoken=csrf token"
