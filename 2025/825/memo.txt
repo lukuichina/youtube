@@ -1,0 +1,32 @@
+[user@server3 ~]$ ./nodejs1.sh
+<!DOCTYPE html>
+<html style="height:100%">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<title> 404 Not Found
+</title><style>@media (prefers-color-scheme:dark){body{background-color:#000!important}}</style></head>
+<body style="color: #444; margin:0;font: normal 14px/20px Arial, Helvetica, sans-serif; height:100%; background-color: #fff;">
+<div style="height:auto; min-height:100%; ">     <div style="text-align: center; width:800px; margin-left: -400px; position:absolute; top: 30%; left:50%;">
+        <h1 style="margin:0; font-size:150px; line-height:150px; font-weight:bold;">404</h1>
+<h2 style="margin-top:20px;font-size: 30px;">Not Found
+</h2>
+<p>The resource requested could not be found on this server!</p>
+</div></div></body></html>
+ls: cannot access '/home/user/nodevenv/domains/domain.com/public_html': No such file or directory
+nodejs app not Found
+{"result": "success", "timestamp": 1764636194.242402}
+
+added 24 packages, and audited 25 packages in 8s
+
+6 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    44    0    44    0     0      8      0 --:--:--  0:00:05 --:--:--     8
+[user@server3 ~]$ ./nodejs1.sh
+Powered by X-for-webhostmost
+Author: nobody
+22
+nodejs app Found
