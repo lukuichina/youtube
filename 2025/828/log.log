@@ -1,0 +1,8 @@
+
+~/app/webhostmost# python3 nodejs_err.py
+{'json': 'yes', 'action': 'rename', 'path': '/nodevenv/domains', 'old': 'domain.com', 'filename': 'domain.com_bak'}
+{"result":"","success":"File renamed successfully"}
+2025-12-06 06:46:11.556895
+2025-12-06 06:48:11.557172
+{'json': 'yes', 'action': 'rename', 'path': '/nodevenv/domains', 'old': 'domain.com_bak', 'filename': 'domain.com'}
+{"result":"","success":"File renamed successfully"}
