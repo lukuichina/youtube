@@ -1,0 +1,12 @@
+tunnel: fc69d070-711a-4b1a-be87-7769c944073b
+credentials-file: /etc/cloudflared/fc69d070-711a-4b1a-be87-7769c944073b.json
+ingress:
+   - hostname: socks5.swings.one
+     service: socks-proxy
+     originRequest:
+       ipRules:
+       - prefix: 0.0.0.0/0
+         allow: true
+   - service: http://192.168.10.7:1080
+     originRequest:
+        noTLSVerify: true
