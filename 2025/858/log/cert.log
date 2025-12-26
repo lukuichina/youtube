@@ -1,0 +1,14 @@
+{
+  "result": {
+    "id": "09a5d33682288651e75955a8741ad996a986640e",
+    "zone_id": "353e4b378342317f7dc6c1ae8dff39ee",
+    "zone_name": "freeluck.site",
+    "hostname": "*.frp.freeluck.site",
+    "service": "nav",
+    "environment": "production",
+    "cert_id": "f7f65265-98b8-459b-b34f-11ba3ccd8787"
+  },
+  "success": true,
+  "errors": [],
+  "messages": []
+}
