@@ -1,0 +1,12 @@
+#!/bin/bash
+ACCOUNT_ID=account id
+TUNNEL_ID=tunnel id
+ACCOUNT_EMAIL=email
+ACCOUNT_KEY=Global API Key
+
+curl https://api.cloudflare.com/client/v4/accounts/$ACCOUNT_ID/cfd_tunnel/$TUNNEL_ID/configurations \
+    -X PUT \
+    -H 'Content-Type: application/json' \
+    -H "X-Auth-Email: $ACCOUNT_EMAIL" \
+    -H "X-Auth-Key: $ACCOUNT_KEY" \
+    -d '{}' > upd.log
