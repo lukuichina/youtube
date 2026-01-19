@@ -1,0 +1,7 @@
+ip link add dev wg0 type wireguard
+wg setconf wg0 /etc/wireguard/wg0.conf
+#ifconfig wg0 10.77.0.1 netmask 255.255.255.0 (IP NG)
+ip addr flush dev wg0
+ip route add 10.77.0.0/24 dev wg0
+ifconfig wg0 up
+ip a add 10.77.0.1/32 dev wg0  (IP OK)
