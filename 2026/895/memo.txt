@@ -1,0 +1,14 @@
+
+server
+ip l2tp add tunnel tunnel_id 101 peer_tunnel_id 501 local 10.2.80.2(vps private ip) remote (home ISP) encap udp udp_sport (vps nat port) udp_dport 13606
+ip l2tp add session tunnel_id 101 session_id 1001 peer_session_id 5001
+ip link set l2tpeth0 up mtu 1488
+ip addr add 10.42.1.1 peer 10.42.1.2 dev l2tpeth0
+ip route add 192.168.10.0/24(home subnet) via 10.42.1.2 dev l2tpeth0
+
+client
+ip l2tp add tunnel tunnel_id 501 peer_tunnel_id 101 local (home private ip) remote (vps ISP) encap udp udp_sport 13606 udp_dport (vps nat port)
+ip l2tp add session tunnel_id 501 session_id 5001 peer_session_id 1001
+ip link set l2tpeth0 up mtu 1488
+ip addr add 10.42.1.2 peer 10.42.1.1 dev l2tpeth0
+ip route add 10.2.80.0/24(vps subnet) via 10.42.1.1 dev l2tpeth0
