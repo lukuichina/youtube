@@ -1,0 +1,34 @@
+888期: socks5
+870期: clawcloud gateway
+
+./tailscaled --tun=userspace-networking --state=tailscaled.state --socket ./tailscaled.sock --socks5-server=:35005 --outbound-http-proxy-listen=:35005
+
+./tailscale --socket ./tailscaled.sock up --ssh --advertise-exit-node --advertise-routes 172.16.81.0/24
+
+tailscaleup --exit-node=sv66  --ssh --advertise-exit-node=false
+
+
+[springfr@sv66 bin]$ ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: ens34: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether 00:0c:29:7f:31:b7 brd ff:ff:ff:ff:ff:ff
+    altname enp2s2
+    inet 103.137.185.66/24 brd 103.137.185.255 scope global noprefixroute ens34
+       valid_lft forever preferred_lft forever
+    inet 103.137.185.88/24 brd 103.137.185.255 scope global secondary noprefixroute ens34
+       valid_lft forever preferred_lft forever
+    inet6 fe80::20c:29ff:fe7f:31b7/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+3: ens37: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether 00:0c:29:7f:31:c1 brd ff:ff:ff:ff:ff:ff
+    altname enp2s5
+    inet 172.16.81.117/16 brd 172.16.255.255 scope global noprefixroute ens37
+       valid_lft forever preferred_lft forever
+    inet6 fe80::4c78:40e8:d2f9:a020/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+[springfr@sv66 bin]$ 
