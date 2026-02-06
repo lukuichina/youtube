@@ -1,0 +1,41 @@
+ENV 
+export NETBIRD_BIN=/home/springfr/app/netbird
+export NB_USE_NETSTACK_MODE=true
+export NB_ENABLE_NETSTACK_LOCAL_FORWARDING=true
+export NB_CONFIG=/home/springfr/app/config.json
+export NB_STATE_DIR=/home/springfr/app
+export NB_DAEMON_ADDR=unix:///home/springfr/app/netbird.sock
+export NB_LOG_FILE=console,/home/springfr/app/client.log 
+export NB_DISABLE_DNS=true 
+export NB_ENTRYPOINT_SERVICE_TIMEOUT=5 
+export NB_ENTRYPOINT_LOGIN_TIMEOUT=1
+
+export NB_SETUP_KEY=your netbird setup key
+export NB_SOCKS5_LISTENER_PORT=35105
+
+
+-----------------------------------------------------------------
+sample: replace your path
+
+export NB_USE_NETSTACK_MODE=true
+export NB_ENABLE_NETSTACK_LOCAL_FORWARDING=true
+export NB_CONFIG=/home/springfr/app/nbs/config.json
+export NB_STATE_DIR=/home/springfr/app/nbs
+export NB_DAEMON_ADDR=unix:///home/springfr/app/nbs/netbird.sock
+export NB_LOG_FILE=console,/home/springfr/app/nbs/client.log
+export NB_DISABLE_DNS=true 
+export NB_ENTRYPOINT_SERVICE_TIMEOUT=5 
+export NB_ENTRYPOINT_LOGIN_TIMEOUT=1
+
+export NB_SETUP_KEY=your netbird setup key
+
+
+./netbird up --foreground-mode
+./netbird service run
+./netbird up --daemon-addr unix:///home/springfr/app/nbs/netbird.sock -k setup-key
+
+start ssh:
+./netbird service run (necessary, the below command is ng when foreground-mode)
+
+./netbird down --daemon-addr unix:///home/springfr/app/nbs/netbird.sock 
+./netbird up --daemon-addr unix:///home/springfr/app/nbs/netbird.sock --allow-server-ssh --enable-ssh-root
